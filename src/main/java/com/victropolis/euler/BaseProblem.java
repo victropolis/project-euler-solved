@@ -4,19 +4,18 @@ package com.victropolis.euler;
  * Created by victropolis on 6/12/15.
  */
 public class BaseProblem {
-    protected static boolean isPrime(long x) {
-        boolean isPrime = false;
+    protected static boolean isPrime(long number) {
+        boolean isPrime = true;
 
-        if (x != 1) {
-            if (x == 2 || x == 3) {
-                isPrime = true;
-            }
-            else {
-                int y = 2;
-
-                do {
-                    isPrime = (x % y != 0);
-                } while (isPrime && ++y <= Math.sqrt(x));
+        if (number == 1) {
+            isPrime = false;
+        }
+        else {
+            for (int x = 2; x*x <= number; x++) {
+                if (number % x == 0) {
+                    isPrime = false;
+                    break;
+                }
             }
         }
 
