@@ -7,18 +7,18 @@ import java.util.List;
  * Created by victropolis on 6/12/15.
  */
 public class Problem016 extends BaseProblem {
-/*
+    /*
 
-215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+    215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
 
-What is the sum of the digits of the number 2^1000?
+    What is the sum of the digits of the number 2^1000?
 
-*/
+    */
     public static long solve(int base, int exponent) {
         List<Integer> digits = new ArrayList<Integer>();
         digits.add(base);
 
-        for (int x = 0; x < exponent-1; x++) {
+        for (int x = 0; x < exponent - 1; x++) {
             Integer carry = 0;
 
             for (int position = 0; position < digits.size(); position++) {
@@ -28,8 +28,7 @@ What is the sum of the digits of the number 2^1000?
                 if (number > 9) {
                     carry = number / 10;
                     number = number % 10;
-                }
-                else {
+                } else {
                     carry = 0;
                 }
 
@@ -44,7 +43,7 @@ What is the sum of the digits of the number 2^1000?
         int answer = 0;
 
         for (Integer digit : digits) {
-            answer+=digit;
+            answer += digit;
         }
 
         return answer;
